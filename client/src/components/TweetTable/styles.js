@@ -1,7 +1,11 @@
 
 const styles = theme => ({
+    root: {
+        overflowY: "hidden",
+    },
     table: {
-      
+        overflowX: "hidden",
+        overflowY: "hidden",
     },
     itemContainer: {
         backgroundColor: theme.palette.primary.main,
@@ -10,18 +14,21 @@ const styles = theme => ({
         marginBottom: 10,
         display: 'flex',
         flexDirection: "row",
-        alignItems: 'center'
-    },
-    itemText: {
-        fontSize: 16,
-        fontWeight: 300,
-        color: theme.palette.text.main
-    },
+        alignItems: 'center',
+        minWidth: 498
+    },    
     itemThresh: {
-        fontSize: 20,
+        fontSize: 14,
         fontWeight: 500,
         color: theme.palette.text.main,
-        marginRight: 10
+        marginLeft: 5,
+        width: "10%"
+    },
+    itemText: {
+        fontSize: 14,
+        fontWeight: 300,
+        color: theme.palette.text.main,
+        width: "90%"
     }
   });
   export default styles;

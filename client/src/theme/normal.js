@@ -11,8 +11,10 @@ const theme = createMuiTheme({
       main: '#212121',
     },
     secondary: {
+      // dark gray
+      main: "#424242",
       // light gray
-      main: "#ABB2B9"
+      alt: "#ABB2B9"
     },
     accent: {
       // purple

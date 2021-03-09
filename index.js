@@ -42,7 +42,7 @@ const fetchTweets = async (field) => {
   // If anime is resulted, then there was an error :(
   if ('string' != typeof(field))
   {
-    field = "anime"
+    field = "cats"
   }
 
   try {
@@ -152,21 +152,21 @@ const getTableData = (arr) => {
   {
     if (arr[i].threshold == "Positive")
     {
-      if (positive++ < 5)
+      if (positive++ < 3)
       {
         tableData.push(arr[i])
       }
     } 
     else if (arr[i].threshold == "Neutral")
     {
-      if (neutral++ < 5)
+      if (neutral++ < 3)
       {
         tableData.push(arr[i])
       }
     } 
     else if (arr[i].threshold == "Negative")
     {
-      if (negative++ < 5)
+      if (negative++ < 3)
       {
         tableData.push(arr[i])
       }
