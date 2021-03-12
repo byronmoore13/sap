@@ -8,17 +8,19 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       // dark
-      main: '#212121',
+      main: '#303030',
     },
     secondary: {
       // dark gray
       main: "#424242",
       // light gray
-      alt: "#ABB2B9"
+      alt: "#ABB2B9",
+      disabled: "rgba(255, 255, 255, 0.3)",
+      divider: "rgba(255, 255, 255, 1)"
     },
     accent: {
       // purple
-      main: '#C39BD3'
+      main: '#DB89FA'
     },
     text: {
       // light

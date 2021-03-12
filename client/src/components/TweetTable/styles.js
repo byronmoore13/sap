@@ -21,8 +21,12 @@ const styles = theme => ({
         fontSize: 14,
         fontWeight: 500,
         color: theme.palette.text.main,
-        marginLeft: 5,
-        width: "10%"
+        margin: "0px 10px",
+        width: 40,
+        height: 40,
+        lineHeight: 2.8,
+        textAlign: "center",
+        borderRadius: "50%"
     },
     itemText: {
         fontSize: 14,

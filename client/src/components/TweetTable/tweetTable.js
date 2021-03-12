@@ -25,10 +25,21 @@ const container = {
     }
   };
 
+  
 const TweetTable = (props) => {
     const data = props.data;
     const filterItem = props.filterItem;
     const { classes } = props;
+
+    const renderColor = () => {
+        if (filterItem === "Positive") {
+          return "#8CC784";
+        } else if (filterItem === "Neutral") {
+          return "#5C84C3";
+        } else {
+          return "#C35C5C";
+        }
+    }
 
     return (
         <div className={classes.root}>
@@ -37,7 +48,7 @@ const TweetTable = (props) => {
                     data.filter(function(item) { return item.threshold == filterItem;})
                     .map((item) =>
                         <motion.div variants={itemObj} className={classes.itemContainer}>
-                            <Typography className={classes.itemThresh}>{item.intensity.toFixed(2)}</Typography> 
+                            <Typography style={{backgroundColor: `${renderColor()}`}} className={classes.itemThresh}>{(item.intensity * 100).toFixed(0)}%</Typography> 
                             <Typography className={classes.itemText}>{item.text}</Typography>   
                         </motion.div>
                     )

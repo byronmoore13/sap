@@ -10,13 +10,36 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Tweet api
 app.get('/api/getTweets', async(req, res) => {
+    let verified, retweet, exact, hashtags = false;
+    let keyword, queryString = "";
+    console.log(req.query)
+
+    keyword = req.query.keyword;
+    verified = req.query.verified;
+    retweet = req.query.retweet;
+    exact = req.query.exact;
+    hashtags = req.query.hashtags;
+
+
+    queryString = getQueryString(keyword, verified, retweet, exact, hashtags);
+
+
     // Pull tweets with renderTweets function
-    let tweets = await fetchTweets(Object.values(req.query)[0]);
-    // Process array with sentiment analysis
-    let results = await getResults(tweets);
-    // Return data
-    res.json(results)
-    console.log("Sent results")
+    let tweets = await fetchTweets(queryString);
+
+    if (tweets === -1)
+    {
+        console.log("No tweets returned")
+        res.json(tweets);
+    }
+    else {
+        // Process array with sentiment analysis
+        let results = await getResults(tweets);
+        // Return data
+        res.json(results)
+        console.log("Sent results")
+        console.log("_____________")
+    }
 })
 
 
@@ -32,6 +55,26 @@ console.log('App is listening on port ' + port);
 
 
 
+// Helper Functions
+const getQueryString = (keywordI, verifiedI, retweetI, exactI, hashtagsI) => {
+  let queryString = keywordI;
+  console.log("QUERYSTRING GEN:   " + keywordI + "   v: " + verifiedI + "   Retweet: " + retweetI + "  exac: " + exactI);
+
+  if (exactI == 1) {
+      queryString = "\"" + queryString + "\"";
+  }
+  if (verifiedI == 1) {
+    queryString = queryString + " is:verified";
+  }
+  if (retweetI == 1) {
+    queryString = queryString + " -is:retweet";
+  }
+  if (hashtagsI == 1) {
+    queryString = queryString + " has:hashtags";
+  }
+  console.log("QUERYSTRING END:   " + queryString)
+  return queryString;
+}
 
 // Start of twitter
 const apikey = process.env.apikey;
@@ -39,39 +82,39 @@ const apiSecretKey = process.env.apikeysecret;
 const bearerToken = process.env.bearertoken
 
 const fetchTweets = async (field) => {
-  // If anime is resulted, then there was an error :(
-  if ('string' != typeof(field))
-  {
-    field = "cats"
-  }
-
   try {
     // Initiate Twitter-v2 object
     const client = await new Twitter({
-          consumer_key: apikey,
-          consumer_secret: apiSecretKey,
-          bearer_token: bearerToken,
+        consumer_key: apikey,
+        consumer_secret: apiSecretKey,
+        bearer_token: bearerToken,
     });
-  
+      console.log(field);
     // https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query
-        const { data: tweets, meta, errors } = await client.get('tweets/search/recent', {
-          query: '${rules} -is:retweet is:verified lang:en'.replace('${rules}', field),
-          max_results: 100,
+      const { data: tweets, meta, errors } = await client.get('tweets/search/recent', {
+          query: '${rules} -is:reply lang:en'.replace('${rules}', field),
+          max_results: 10,
           tweet: {
             fields: [
               'created_at',
               'text',
-              'author_id',
+              'id'
             ],
           },
         }
       );
+
       console.log("Success! Tweets were on the topic of: " + field)
       return tweets;
+      
   } catch (err) {
     console.log(err);
+
   }
 }
+/*
+
+*/
 
 
 
@@ -191,21 +234,10 @@ async function getResults(tweets) {
     }
 
     // Get overall sentiment consensus on the topic
-    sentiment = getAverage(scoreArr).toFixed(5);
+    sentiment = getAverage(scoreArr).toFixed(3);
     pieData = getPieData(scoreArr);
     tableData = getTableData(scoreArr);
-    returnArr = [sentiment, pieData, tableData];
+    tweetCount = scoreArr.length;
+    returnArr = [sentiment, pieData, tableData, tweetCount];
     return returnArr;
 }
-
-/*
-  [
-    overallSentiment,    
-    [pieData],
-    [PositiveTweets],
-    [NeutralTweets],
-    [NegativeTweets]
-
-  ]
-*/
-
