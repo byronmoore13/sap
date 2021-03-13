@@ -80,6 +80,7 @@ const Home = (props) => {
         if (data === -1)
         {
           setError(true);
+          setLoading(false);
           console.log("error shit")
         } else
         {
@@ -135,7 +136,7 @@ const Home = (props) => {
                 
               </motion.div>
             </form>
-            {error && <Typography>No tweets returned. Try again</Typography>}
+            {error && <Typography style={{color: "white"}}>No tweets returned. Try again</Typography>}
             {loading && <LoadingSkeleton /> }
             {loaded && <Display tweetCount={tweetCount} chartLoad={chartLoad} prevQuery={PrevQuery} sentiment={Sentiment} filter={Filter} tweetList={tweetList} onChange={handleFilter} pieData={pieData}/> }
         </motion.div>

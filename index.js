@@ -23,14 +23,14 @@ app.get('/api/getTweets', async(req, res) => {
 
     queryString = getQueryString(keyword, verified, retweet, exact, hashtags);
 
-
     // Pull tweets with renderTweets function
     let tweets = await fetchTweets(queryString);
 
-    if (tweets === -1)
+    // if no tweets have been returned...
+    if (tweets === undefined)
     {
         console.log("No tweets returned")
-        res.json(tweets);
+        res.json(-1);
     }
     else {
         // Process array with sentiment analysis
@@ -103,20 +103,12 @@ const fetchTweets = async (field) => {
           },
         }
       );
-
       console.log("Success! Tweets were on the topic of: " + field)
       return tweets;
-      
   } catch (err) {
     console.log(err);
-
   }
 }
-/*
-
-*/
-
-
 
 
 // Start of Sentiment
