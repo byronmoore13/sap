@@ -12,7 +12,6 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/api/getTweets', async(req, res) => {
     let verified, retweet, exact, hashtags = false;
     let keyword, queryString = "";
-    console.log(req.query)
 
     keyword = req.query.keyword;
     verified = req.query.verified;
@@ -58,7 +57,6 @@ console.log('App is listening on port ' + port);
 // Helper Functions
 const getQueryString = (keywordI, verifiedI, retweetI, exactI, hashtagsI) => {
   let queryString = keywordI;
-  console.log("QUERYSTRING GEN:   " + keywordI + "   v: " + verifiedI + "   Retweet: " + retweetI + "  exac: " + exactI);
 
   if (exactI == 1) {
       queryString = "\"" + queryString + "\"";
@@ -72,7 +70,6 @@ const getQueryString = (keywordI, verifiedI, retweetI, exactI, hashtagsI) => {
   if (hashtagsI == 1) {
     queryString = queryString + " has:hashtags";
   }
-  console.log("QUERYSTRING END:   " + queryString)
   return queryString;
 }
 
@@ -89,11 +86,10 @@ const fetchTweets = async (field) => {
         consumer_secret: apiSecretKey,
         bearer_token: bearerToken,
     });
-      console.log(field);
     // https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query
       const { data: tweets, meta, errors } = await client.get('tweets/search/recent', {
           query: '${rules} -is:reply lang:en'.replace('${rules}', field),
-          max_results: 10,
+          max_results: 100,
           tweet: {
             fields: [
               'created_at',
