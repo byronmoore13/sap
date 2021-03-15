@@ -6,16 +6,13 @@ const styles = theme => ({
     },
     count: {
         position: 'absolute',
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
         width: 100,
         marginLeft: -50,
-        top: "22%",
+        marginTop: -25,
+        top: "40%",
         left: "50%",
         textAlign: 'center',
-        fontSize: 42,
+        fontSize: 46,
         fontWeight: 600,
         color: theme.palette.text.main,
         lineHeight: 1.2,
@@ -32,7 +29,7 @@ const styles = theme => ({
         fontWeight: 600,
         color: theme.palette.text.alt,
         lineHeight: 1.2,
-        zIndex: 0
+        zIndex: 90
     }
   });
   export default styles;

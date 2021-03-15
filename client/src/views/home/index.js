@@ -81,7 +81,6 @@ const Home = (props) => {
         {
           setError(true);
           setLoading(false);
-          console.log("error shit")
         } else
         {
           setLoading(false);

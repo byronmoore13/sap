@@ -27,14 +27,14 @@ const styles = theme => ({
         marginLeft: 100,
     },
     details: {
-        color: theme.palette.text.main,
+        color: theme.palette.text.alt,
         fontSize: 20,
-        fontWeight: 500
+        fontWeight: 400
     },
     detailsQuery: {
         color: theme.palette.text.main,
-        fontSize: 28,
-        fontWeight: 600
+        fontSize: 32,
+        fontWeight: 400
     },
     tableContainer: {
         minHeight: 470,
@@ -43,7 +43,7 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: "column",
         alignItems: 'center',
-        margin: "0px 20px 50px 10px",
+        margin: "0px 30px 50px 10px",
         padding: "10px 0px 10px 0px",
         borderRadius: 25,
     },

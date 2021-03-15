@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { withStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import Counter from "components/Counter/counter"
 import styles from "./styles"
 
 // [positive, neutral, negative]
@@ -14,9 +15,12 @@ const PieChartComp = (props) => {
     const tweetCount = props.tweetCount
 
     const renderPlus = (input) => {
+        let result = "";
         if (input === 100) {
-            return "+";
+            result = "+"
         }
+        
+        return result;
     }
 
     return (
@@ -31,15 +35,19 @@ const PieChartComp = (props) => {
                 fill="#8884d8"
                 paddingAngle={5}
                 dataKey="value"
+                label
                 >
                 {data.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
                 </Pie>
                 <Legend verticalAlign="bottom" height={36}/>
-                <Tooltip contentStyle={{backgroundColor: '#ECF0F1', border: 'none', borderRadius: 5}} cursor={{ stroke: 'red', strokeWidth: 2 }} />
+                {/*<Tooltip coordinate={{x: 100, y: 100}} contentStyle={{backgroundColor: '#ECF0F1', border: 'none', borderRadius: 5, zIndex: 1000}} cursor={{ stroke: 'red', strokeWidth: 2 }} />*/}
             </PieChart>
-            <Typography className={classes.count}>{tweetCount}{renderPlus(tweetCount)}</Typography>
+            <Typography className={classes.count}>
+                <Counter style={{color: 'red'}} from={0} to={tweetCount} />
+                {renderPlus(tweetCount)}
+            </Typography>
             <Typography className={classes.countDetails}>tweets in the last seven days</Typography>
         </div>
 
