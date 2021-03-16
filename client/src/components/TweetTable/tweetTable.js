@@ -33,11 +33,11 @@ const TweetTable = (props) => {
 
     const renderColor = () => {
         if (filterItem === "Positive") {
-          return "#8CC784";
+          return "#90BE94";
         } else if (filterItem === "Neutral") {
-          return "#5C84C3";
+          return "#90A4BE";
         } else {
-          return "#C35C5C";
+          return "#BE90A0";
         }
     }
 

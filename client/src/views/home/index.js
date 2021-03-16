@@ -99,7 +99,7 @@ const Home = (props) => {
 
     return (
       <div className={classes.root}>
-        <Typography className={classes.title}>Welcome to the Twitter Sentiment Tool</Typography>
+        <Typography className={classes.title}>Twitter Sentiment Search</Typography>
         <Typography className={classes.desc}>Enter a topic to find the overall sentiment on Twitter.</Typography>
         <motion.div layout className={classes.activeContainer}>
             <form className={classes.inputForm} noValidate autoComplete="off" onSubmit={handleSubmit}>
@@ -108,7 +108,7 @@ const Home = (props) => {
                     <TextField 
                         className={classes.field}
                         label="Search"
-                        variant="outlined"
+                        variant="filled"
                         value={Query}
                         onChange={(event) => setQuery(event.target.value)}
                     />

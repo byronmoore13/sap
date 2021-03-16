@@ -2,6 +2,7 @@
 const styles = theme => ({
     root: {
         overflowY: "hidden",
+        minHeight: 420,
     },
     table: {
         overflowX: "hidden",
@@ -15,13 +16,18 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: "row",
         alignItems: 'center',
-        minWidth: 498
+        maxWidth: 480,
+        minWidth: 470,
+        boxShadow: 
+        `inset 5px 5px 7px #464452,
+        inset -5px -5px 7px #6a667a`,
     },    
     itemThresh: {
         fontSize: 14,
         fontWeight: 500,
         color: theme.palette.text.main,
-        margin: "0px 10px",
+        marginleft: 5,
+        marginRight: 10,
         width: 40,
         height: 40,
         lineHeight: 2.8,

@@ -4,9 +4,10 @@ const styles = theme => ({
         width: 400,
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+        marginBottom: 10
     },
-    btnPositive: {
+    btn: {
         transition: "all .2s ease-in-out",
         "&:hover": {
           transform: "scale(1.05)",
@@ -18,64 +19,19 @@ const styles = theme => ({
         marginBottom: 20,
         cursor: "pointer",
         '& .MuiButton-root': {
-            backgroundColor: theme.palette.secondary.disabled,
+            backgroundColor: theme.palette.primary.main,
             borderRadius: 12,
             height: 36,
-            width: "auto",
+            width: "auto",            
+            boxShadow: 
+            `7px 7px 14px #3e3c47,
+            -7px -7px 14px #726f85`,
         },
         '& .MuiButton-text': {
             color: theme.palette.text.main
         },
         '& .Mui-disabled': {
-            backgroundColor: "#8CC784"
-        },
-    },
-    btnNeutral: {
-        transition: "all .2s ease-in-out",
-        "&:hover": {
-          transform: "scale(1.05)",
-          filter: "brightness(.8)"
-        },
-        "&:active": {
-            transform: "scale(.95)",
-        },
-        marginBottom: 20,
-        cursor: "pointer",
-        '& .MuiButton-root': {
             backgroundColor: theme.palette.secondary.disabled,
-            borderRadius: 12,
-            height: 36,
-            width: "auto",
-        },
-        '& .MuiButton-text': {
-            color: theme.palette.text.main
-        },
-        '& .Mui-disabled': {
-            backgroundColor: "#5C84C3"
-        },
-    },
-    btnNegative: {
-        transition: "all .2s ease-in-out",
-        "&:hover": {
-          transform: "scale(1.05)",
-          filter: "brightness(.8)"
-        },
-        "&:active": {
-            transform: "scale(.95)",
-        },
-        marginBottom: 20,
-        cursor: "pointer",
-        '& .MuiButton-root': {
-            backgroundColor: theme.palette.secondary.disabled,
-            borderRadius: 12,
-            height: 36,
-            width: "auto",
-        },
-        '& .MuiButton-text': {
-            color: theme.palette.text.main
-        },
-        '& .Mui-disabled': {
-            backgroundColor: "#C35C5C"
         },
     }
   });

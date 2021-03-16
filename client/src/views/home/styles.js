@@ -9,50 +9,78 @@ const styles = theme => ({
     },
     activeContainer: {
         backgroundColor: theme.palette.secondary.main,
-        padding: 10,
+        boxShadow: 
+        `10px 10px 20px #403e4a,
+        -10px -10px 20px #706c82`,
+        padding: 15,
         borderRadius: 25,
         display: 'flex',
         flexDirection: "column",
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 100
     },
     title: {
-        fontSize: 32,
+        fontSize: 66,
         fontWeight: 600,
-        color: theme.palette.text.main,
-        marginTop: 36
+        color: theme.palette.secondary.tint,
+        marginTop: 26,
+        letterSpacing: 3,
+        lineHeight: 1,
+        textShadow: 
+        `6px 6px 12px #413f4b,
+        -6px -6px 12px #6f6b81`,
     },
     desc: {
-        fontSize: 18,
-        fontWeight: 300,
-        color: theme.palette.text.main,
-        marginTop: 8,
-        marginBottom: 40
+        fontSize: 24,
+        fontWeight: 600,
+        color: theme.palette.secondary.tint,
+        marginTop: 10,
+        marginBottom: 50,
+        letterSpacing: 3,
+        textShadow: 
+        `6px 6px 12px #413f4b,
+        -6px -6px 12px #6f6b81`,
     },
     inputForm: {
         margin: 20,
-        height: 112,
+        height: 112, // Text Fields
+        '& .MuiTextField-root': {
+            width: 600,
+            backgroundColor: theme.palette.primary.main,
+            borderRadius: 15,
+        },
+        '& .MuiFilledInput-root': {
+            backgroundColor: theme.palette.primary.main,
+            borderRadius: 15,   
+            boxShadow: 
+            `inset 5px 5px 7px #464452,
+            inset -5px -5px 7px #6a667a`,
+        },
+        '& .MuiFilledInput-underline:before': {
+            border: "none"
+        },
+        '& .MuiFilledInput-underline:after': {
+            border: "none"
+        },
         '& label.Mui-focused': {
-            color: theme.palette.text.main
+        color: theme.palette.text.main,
         },
         '& .MuiInputBase-input': {
-            color: theme.palette.text.main
+            color: theme.palette.text.main,
         },
         '& .MuiFormLabel-root': {
-            color: theme.palette.text.main
+            color: theme.palette.text.main,
         },
         '& .MuiOutlinedInput-root': {
             '& fieldset': {
-                borderColor: theme.palette.secondary.divider,
-                borderWidth: 2,
+                borderColor: theme.palette.text.main,
                 borderRadius: 15,
             },
             '&:hover fieldset': {
-                borderColor: theme.palette.secondary.divider,
-                borderWidth: 2,
+                borderColor: theme.palette.text.main,
             },
             '&.Mui-focused fieldset': {
-                borderColor: theme.palette.secondary.divider,
-                borderWidth: 3
+                borderColor: theme.palette.text.main,
             },
         },
     },
@@ -72,52 +100,60 @@ const styles = theme => ({
     },
     searchBtn: {
         marginLeft: 20,
+        borderRadius: 12,
+
         '& .MuiButton-root': {
             backgroundColor: theme.palette.accent.main,
             borderRadius: 12,
             height: 56,
-            width: 72,
+            width: 72,        
+            boxShadow: 
+            `5px 5px 7px #3a3843,
+            -5px -5px 7px #767289`,
             transition: "all .2s ease-in-out",
             "&:hover": {
               transform: "scale(1.05)",
-              filter: "brightness(.8)"
+              filter: "brightness(.9)"
             }
         },
         '& .MuiButton-text': {
             color: theme.palette.text.main
         },
         '& .Mui-disabled': {
-            backgroundColor: theme.palette.secondary.disabled
+            backgroundColor: theme.palette.primary.main
         },
     },
     settingsRow: {
         display: 'flex',
         flexDirection: "row",
         alignItems: 'center',
-        marginTop: 20
+        marginTop: 30
     },
     paramButton: {
         marginLeft: 20,
         cursor: "pointer",
         transition: "all .2s ease-in-out",
         "&:hover": {
-          transform: "scale(1.05)",
-          filter: "brightness(.8)"
+          transform: "scale(1.01)",
         },
         "&:active": {
             transform: "scale(.95)",
           },
         '& .MuiButton-root': {
-            backgroundColor: theme.palette.accent.main,
+            backgroundColor: theme.palette.secondary.disabled,
             borderRadius: 12,
             height: 36,
             width: "auto",
+            boxShadow: 
+            `5px 5px 7px #3a3843,
+            -5px -5px 7px #767289`,
         },
         '& .MuiButton-text': {
             color: theme.palette.text.main
         },
         '& .Mui-disabled': {
-            backgroundColor: theme.palette.secondary.disabled
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.text.alt
         },
 
     },
@@ -175,11 +211,11 @@ const styles = theme => ({
     tableContainer: {
         minHeight: 470,
         height: "auto",
-        width: 500,
+        width: 400,
         display: 'flex',
         flexDirection: "column",
         alignItems: 'center',
-        margin: "0px 20px 50px 10px",
+        margin: "0px 10px 50px 10px",
         padding: "10px 0px 10px 0px",
         borderRadius: 25,
     },

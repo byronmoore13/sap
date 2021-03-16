@@ -5,6 +5,8 @@ import { Typography, TextField, Button, Divider } from "@material-ui/core";
 import PieChartComp from "components/PieChart/piechart"
 import TweetTable from "components/TweetTable/tweetTable"
 import TableButtons from "components/TableButtons/tableButtons"
+import Counter from "components/Counter/counter"
+
 import styles from "./styles"
 
 const Display = (props) => {
@@ -21,6 +23,15 @@ const Display = (props) => {
         props.onChange(input);
     }
 
+    const renderPlus = (input) => {
+        let result = "";
+        if (input === 100) {
+            result = "+"
+        }
+        
+        return result;
+    }
+
     return (    
         <div className={classes.contentRoot}>
             <Divider className={classes.divider} />
@@ -28,11 +39,19 @@ const Display = (props) => {
             <div className={classes.leftPane}>
                 {chartLoad &&
                 <div>
-                    <div className={classes.detailCont}>
-                    <Typography className={classes.detailsQuery}>{prevQuery}</Typography>
-                    <Typography className={classes.details}>Sentiment: {(sentiment * 100).toFixed(0)}%</Typography>
+                    <div className={classes.raisedBackground}>
+                        <Typography className={classes.count}>
+                            <Counter style={{color: 'red'}} from={0} to={tweetCount} />
+                            {renderPlus(tweetCount)}
+                        </Typography>
+                        <Typography className={classes.countDetails}>tweets in the last seven days</Typography>
                     </div>
-                    <PieChartComp data={pieData} tweetCount={tweetCount} />
+                    <div className={classes.detailCont}>
+                        <Typography className={classes.detailsQuery}>{prevQuery}</Typography>
+                        <Typography className={classes.details}>Sentiment: {(sentiment * 100).toFixed(0)}%</Typography>
+                    </div>
+                    <PieChartComp data={pieData}/>
+                    
                 </div>
                 }
             </div>

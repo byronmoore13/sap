@@ -14,13 +14,13 @@ const TableButtons = (props) => {
 
     return (
         <div className={classes.buttons}>
-            <div className={classes.btnPositive}>
+            <div className={classes.btn}>
                 <Button disabled={props.filter === "Positive"} onClick={() => changeFilter("Positive")}>Positive</Button>
             </div>
-            <div className={classes.btnNeutral}>
+            <div className={classes.btn}>
                 <Button disabled={props.filter === "Neutral"} onClick={() => changeFilter("Neutral")}>Neutral</Button>
             </div>
-            <div className={classes.btnNegative}>
+            <div className={classes.btn}>
                 <Button disabled={props.filter === "Negative"} onClick={() => changeFilter("Negative")}>Negative</Button>
             </div>  
         </div>

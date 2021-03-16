@@ -4,29 +4,29 @@ import { createMuiTheme } from '@material-ui/core/styles'
 const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
-  }, 
+    fontFamily: 'Titillium Web, sans-serif'
+  },
   palette: {
     primary: {
       // dark
-      main: '#303030',
+      main: '#585566',
     },
     secondary: {
       // dark gray
-      main: "#424242",
-      // light gray
-      alt: "#ABB2B9",
-      disabled: "rgba(255, 255, 255, 0.3)",
+      main: "#585566",
+      tint: "#97959F",
+      disabled: "#42404D",
       divider: "rgba(255, 255, 255, 1)"
     },
     accent: {
-      // purple
-      main: '#DB89FA'
+      // dark purple
+      main: '#42404D'
     },
     text: {
       // light
-      main: '#ECF0F1',
+      main: '#E7E7EA',
       // gray
-      alt: "#B3B6B7"
+      alt: "#97959F"
     }
   },
 })
