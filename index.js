@@ -179,7 +179,7 @@ const getTableData = (arr) => {
   positive = 0;
   neutral = 0;
   negative = 0;
-  tweetNum = 4;
+  tweetNum = 10;
   for (i = 0; i < arr.length; i++)
   {
     if (arr[i].threshold == "Positive")

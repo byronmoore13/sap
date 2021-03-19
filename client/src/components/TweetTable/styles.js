@@ -1,12 +1,26 @@
 
 const styles = theme => ({
     root: {
-        overflowY: "hidden",
-        minHeight: 420,
+        overflowY: "auto",
+        minHeight: 410,
+        maxHeight: 420,
+        paddingRight: 10,
+        '&::-webkit-scrollbar-track': {
+            borderRadius: 10,
+            backgroundColor: 'none'
+        },
+        '&::-webkit-scrollbar': {
+            width: 6,
+            backgroundColor: 'none'
+        },
+        '&::-webkit-scrollbar-thumb': {
+            borderRadius: 10,
+            '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,.3)',
+            backgroundColor: theme.palette.text.alt
+        }
     },
     table: {
-        overflowX: "hidden",
-        overflowY: "hidden",
+        overflowY: "hidden"
     },
     itemContainer: {
         backgroundColor: theme.palette.primary.main,
@@ -16,8 +30,8 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: "row",
         alignItems: 'center',
-        maxWidth: 480,
-        minWidth: 470,
+        maxWidth: 460,
+        minWidth: 450,
         boxShadow: 
         `inset 5px 5px 7px #464452,
         inset -5px -5px 7px #6a667a`,
