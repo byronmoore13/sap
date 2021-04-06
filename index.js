@@ -2,9 +2,9 @@ const express = require('express');
 const tf = require('@tensorflow/tfjs');
 const fetch = require("node-fetch");
 const path = require('path');
-const Twitter = require('./server/twitter');
-const NPMSentiment = require('./server/results_npm');
-const TensorSentiment = require('./server/results_tensor');
+const Twitter = require('./twitter');
+const NPMSentiment = require('./results_npm');
+const TensorSentiment = require('./results_tensor');
 
 // Init application
 const app = express();
