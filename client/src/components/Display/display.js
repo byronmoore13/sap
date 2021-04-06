@@ -48,7 +48,7 @@ const Display = (props) => {
                     </div>
                     <div className={classes.detailCont}>
                         <Typography className={classes.detailsQuery}>{prevQuery}</Typography>
-                        <Typography className={classes.details}>Sentiment: {(sentiment * 100).toFixed(0)}%</Typography>
+                        <Typography className={classes.details}>Sentiment: {(sentiment * 100).toFixed(0)}% Positive</Typography>
                     </div>
                     <PieChartComp data={pieData}/>
                     

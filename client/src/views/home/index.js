@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
 import { withStyles } from "@material-ui/core/styles";
-import { Typography, TextField, Button, Divider } from "@material-ui/core";
+import { Typography, TextField, Button, Divider, FormControl, Select, MenuItem, InputLabel } from "@material-ui/core";
 import { motion } from "framer-motion"
 
 import SearchIcon from '@material-ui/icons/Search';
@@ -32,11 +32,17 @@ const Home = (props) => {
       verified: false,
       retweet: false,
       exact: false,
-      hashtags: false
+      hashtags: false,
+      analysis: 'npm'
     });
 
     const handleFilter = (value) => {
       setFilter(value);
+    }
+
+    const handleAnalysis = (value) => {
+      console.log(value)
+      setParamsObj({...paramsObj, analysis: value})
     }
 
     const handleBoolean = (bool) => {
@@ -73,7 +79,8 @@ const Home = (props) => {
         verified: handleBoolean(paramsObj.verified),
         retweet: handleBoolean(paramsObj.retweet),
         exact: handleBoolean(paramsObj.exact),
-        hashtags: handleBoolean(paramsObj.hashtags)
+        hashtags: handleBoolean(paramsObj.hashtags),
+        analysis: paramsObj.analysis,
       }})
       .then((response) => {
         let data = response.data;
@@ -95,7 +102,7 @@ const Home = (props) => {
         console.error(error);
       });
     }
-
+    
 
     return (
       <div className={classes.root}>
@@ -131,8 +138,18 @@ const Home = (props) => {
                     <div className={classes.paramButton} onClick={() => setParamsObj({...paramsObj, hashtags: !paramsObj.hashtags})}>
                       <Button disabled={!paramsObj.hashtags}>Has Hashtags</Button>
                     </div>
+                    <FormControl variant="outlined" className={classes.dropdownMenu}>
+                        <Select
+                        labelId="demo-simple-select-filled-label"
+                        id="demo-simple-select-filled"
+                        value={paramsObj.analysis}
+                        onChange={(event) => handleAnalysis(event.target.value)}
+                        >
+                          <MenuItem value={"tensorflow"}>Tensorflow</MenuItem>
+                          <MenuItem value={"npm"}>AFINN-195</MenuItem>
+                        </Select>
+                    </FormControl> 
                 </div>
-                
               </motion.div>
             </form>
             {error && <Typography style={{color: "white"}}>No tweets returned. Try again</Typography>}

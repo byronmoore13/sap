@@ -43,7 +43,16 @@ const styles = theme => ({
     },
     inputForm: {
         margin: 20,
-        height: 112, // Text Fields
+        
+    },
+    field: {
+        width: 600,
+    },
+    inputRow: {
+        display: 'flex',
+        flexDirection: "row",
+        alignItems: 'center',
+        height: 66, // Text Fields
         '& .MuiTextField-root': {
             width: 600,
             backgroundColor: theme.palette.primary.main,
@@ -84,14 +93,6 @@ const styles = theme => ({
             },
         },
     },
-    field: {
-        width: 600,
-    },
-    inputRow: {
-        display: 'flex',
-        flexDirection: "row",
-        alignItems: 'center',
-    },
     searchIcon: {
         color: theme.palette.text.main,
         borderRadius: 12,
@@ -101,7 +102,6 @@ const styles = theme => ({
     searchBtn: {
         marginLeft: 20,
         borderRadius: 12,
-
         '& .MuiButton-root': {
             backgroundColor: theme.palette.accent.main,
             borderRadius: 12,
@@ -155,7 +155,73 @@ const styles = theme => ({
             backgroundColor: theme.palette.primary.main,
             color: theme.palette.text.alt
         },
-
+    },
+    dropdownMenu: {
+        height: 36,
+        width: "auto",
+        marginLeft: 20,
+        paddingLeft: 8,
+        backgroundColor: theme.palette.secondary.disabled,
+        borderRadius: 12,
+        boxShadow: 
+            `5px 5px 7px #3a3843,
+            -5px -5px 7px #767289`,
+        
+        '& .MuiInput-underline': {
+            border: 'none',
+            borderColor: 'green',
+            transition: 'none',
+            "&:hover": {
+                borderColor: 'green'
+              },
+        },
+        '& .MuiOutlinedInput-root': {
+            height: 36,
+            backgroundColor: 'none',
+            '& .MuiInputBase-input': {
+                color: theme.palette.text.main,
+                font: theme.typography.fontFamily
+            },
+        },
+        '& .MuiSelect-icon': {
+            color: theme.palette.text.main,
+            marginTop: 0
+        },
+        "& .MuiOutlinedInput-input": {
+            color: "none",
+            border: 'none'
+          },
+          "& .MuiInputLabel-root": {
+            color: "none",
+            border: 'none'
+          },
+          "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+            borderColor: "none",
+            border: 'none'
+          },
+        "&:hover .MuiOutlinedInput-input": {
+            color: "none",
+            border: 'none'
+          },
+          "&:hover .MuiInputLabel-root": {
+            color: "none",
+            border: 'none'
+          },
+          "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+            borderColor: 'none',
+            border: 'none'
+          },
+          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input": {
+            border: 'none',
+            backgroundColor: 'transparent'
+          },
+          "& .MuiInputLabel-root.Mui-focused": {
+            border: 'none',
+          },
+          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            border: 'none',
+            backgroundColor: 'transparent'
+          }
     },
     divider: {
         width: 900,
