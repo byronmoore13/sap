@@ -2,17 +2,17 @@ const express = require('express');
 const tf = require('@tensorflow/tfjs');
 const fetch = require("node-fetch");
 const path = require('path');
-const Twitter = require('./twitter');
-const NPMSentiment = require('./results_npm');
-const TensorSentiment = require('./results_tensor');
+const Twitter = require('./server/twitter');
+const NPMSentiment = require('./server/results_npm');
+const TensorSentiment = require('./server/results_tensor');
 
 // Init application
 const app = express();
 
 
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, '../client/build')));
-
+// app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Tweet api
 app.get('/api/getTweets', async(req, res) => {
