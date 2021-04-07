@@ -1,4 +1,3 @@
-
 const styles = theme => ({
     divider: {
         width: 900,
@@ -6,18 +5,30 @@ const styles = theme => ({
         backgroundColor: theme.palette.text.main,
         borderRadius: 5,
         marginTop: 40,
-        marginBottom: 10
+        marginBottom: 10,
+        [theme.breakpoints.down("sm")]: {
+            backgroundColor: theme.palette.text.alt,
+            height: 4,
+            width: "90%",
+            marginTop: 25,
+            marginBottom: 40
+        }
     },
     contentRoot: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        width: "100%"
     },
     searchPane: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: "space-between",
-        width: 980
+        width: 980,
+        [theme.breakpoints.down("sm")]: {
+            width: "100%",
+            flexDirection: 'column'
+        }
     },
     leftPane: {
         display: 'flex',
@@ -36,6 +47,11 @@ const styles = theme => ({
         boxShadow: 
         `5px 5px 7px #464452,
         -5px -5px 7px #6a667a`,
+        [theme.breakpoints.down("sm")]: {
+            boxShadow: 
+            `2px 2px 3px #3a3843,
+            -2px -2px 3px #767289`,
+        }
     },
     details: {
         color: theme.palette.text.alt,
@@ -65,6 +81,15 @@ const styles = theme => ({
         boxShadow: 
         `6px 6px 12px #403e4a,
         -6px -6px 12px #706c82`,
+        [theme.breakpoints.down("sm")]: {
+            left: 0,
+            right: 0,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            boxShadow: 
+            `2px 2px 3px #3a3843,
+            -2px -2px 3px #767289`,
+        }
     },
     tableContainer: {
         minHeight: 490,
@@ -76,6 +101,10 @@ const styles = theme => ({
         margin: "0px 0px 10px 10px",
         padding: "10px 0px 10px 0px",
         borderRadius: 25,
+        [theme.breakpoints.down("sm")]: {
+            width: "100%",
+            margin: 0
+        }
     },
     dataTable: {
         overflowY: "visible",

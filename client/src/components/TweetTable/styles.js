@@ -35,6 +35,13 @@ const styles = theme => ({
         boxShadow: 
         `inset 5px 5px 7px #464452,
         inset -5px -5px 7px #6a667a`,
+        [theme.breakpoints.down("sm")]: {
+            minWidth: "90%",
+            maxWidth: "95%",
+            boxShadow: 
+            `inset 3px 3px 4px #464452,
+            inset -3px -3px 4px #6a667a`,
+        }
     },    
     itemThresh: {
         fontSize: 14,
@@ -46,13 +53,19 @@ const styles = theme => ({
         height: 40,
         lineHeight: 2.8,
         textAlign: "center",
-        borderRadius: "50%"
+        borderRadius: "50%",
+        [theme.breakpoints.down("sm")]: {
+           
+        }
     },
     itemText: {
         fontSize: 14,
         fontWeight: 300,
         color: theme.palette.text.main,
-        width: "90%"
+        width: "90%",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 12
+        }
     }
   });
   export default styles;

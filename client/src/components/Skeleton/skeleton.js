@@ -9,11 +9,11 @@ const LoadingSkeleton = (props) => {
     return (
         <div layout className={classes.searchPaneLoading}>
             <div className={classes.loadingLeft}>
-            <Skeleton style={{marginLeft: 100, marginTop: 20}} variant="rect" width={265} height={100} />
-            <Skeleton style={{marginLeft: 100, marginTop: 20}} variant="circle" width={265} height={265} />
+                <Skeleton className={classes.loadingSkelQueryPanel} variant="rect" />
+                <Skeleton className={classes.loadingSkelPie} variant="circle" />
             </div>
             <div className={classes.loadingTable}>
-                <Skeleton variant="rect" width={470} height={460} />
+                <Skeleton className={classes.loadingTableSkel} variant="rect" />
             </div>
         </div>
     )

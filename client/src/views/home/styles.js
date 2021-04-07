@@ -5,7 +5,10 @@ const styles = theme => ({
         width: "100%",
         display: 'flex',
         flexDirection: "column",
-        alignItems: 'center'
+        alignItems: 'center',
+        [theme.breakpoints.down("sm")]: {
+            overflowX: 'hidden'
+        }
     },
     activeContainer: {
         backgroundColor: theme.palette.secondary.main,
@@ -17,7 +20,13 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: "column",
         alignItems: 'center',
-        marginBottom: 100
+        marginBottom: 100,
+        [theme.breakpoints.down("sm")]: {
+            width: '90%',
+            boxShadow: 'none',
+            padding: 0,
+            marginBottom: 20
+        }
     },
     title: {
         fontSize: 66,
@@ -29,6 +38,12 @@ const styles = theme => ({
         textShadow: 
         `6px 6px 12px #413f4b,
         -6px -6px 12px #6f6b81`,
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 32,
+            color: theme.palette.text.main,
+            width: '100%',
+            textAlign: 'center'
+        }
     },
     desc: {
         fontSize: 24,
@@ -40,13 +55,24 @@ const styles = theme => ({
         textShadow: 
         `6px 6px 12px #413f4b,
         -6px -6px 12px #6f6b81`,
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 14,
+            color: theme.palette.text.main,
+            width: '90%',
+            textAlign: 'center',
+            fontWeight: 400,
+            marginBottom: 20
+        }
     },
     inputForm: {
-        margin: 20,
+        margin: 10,
         
     },
     field: {
         width: 600,
+        [theme.breakpoints.down("sm")]: {
+            width: '90%'
+        }
     },
     inputRow: {
         display: 'flex',
@@ -57,6 +83,9 @@ const styles = theme => ({
             width: 600,
             backgroundColor: theme.palette.primary.main,
             borderRadius: 15,
+            [theme.breakpoints.down("sm")]: {
+                width: '100%'
+            }
         },
         '& .MuiFilledInput-root': {
             backgroundColor: theme.palette.primary.main,
@@ -64,6 +93,11 @@ const styles = theme => ({
             boxShadow: 
             `inset 5px 5px 7px #464452,
             inset -5px -5px 7px #6a667a`,
+            [theme.breakpoints.down("sm")]: {
+                boxShadow: 
+                `inset 3px 3px 4px #464452,
+                inset -3px -3px 4px #6a667a`,
+            }
         },
         '& .MuiFilledInput-underline:before': {
             border: "none"
@@ -98,10 +132,17 @@ const styles = theme => ({
         borderRadius: 12,
         height: 36,
         width: 36,
+        [theme.breakpoints.down("sm")]: {
+            height: 28,
+            width: 28
+        }
     },
     searchBtn: {
         marginLeft: 20,
         borderRadius: 12,
+        [theme.breakpoints.down("sm")]: {
+            marginLeft: 10,
+        },
         '& .MuiButton-root': {
             backgroundColor: theme.palette.accent.main,
             borderRadius: 12,
@@ -114,6 +155,13 @@ const styles = theme => ({
             "&:hover": {
               transform: "scale(1.05)",
               filter: "brightness(.9)"
+            },
+            [theme.breakpoints.down("sm")]: {
+                height: 48,
+                width: 52,
+                boxShadow: 
+                `2px 2px 3px #3a3843,
+                -2px -2px 3px #767289`,
             }
         },
         '& .MuiButton-text': {
@@ -126,13 +174,21 @@ const styles = theme => ({
     settingsRow: {
         display: 'flex',
         flexDirection: "row",
+        flexWrap: 'wrap',
         alignItems: 'center',
-        marginTop: 30
+        marginTop: 30,
+        [theme.breakpoints.down("sm")]: {
+            marginTop: 25,
+            alignItems: 'flex-start'
+        }
     },
     paramButton: {
         marginLeft: 20,
         cursor: "pointer",
         transition: "all .2s ease-in-out",
+        [theme.breakpoints.down("sm")]: {
+            margin: "0px 10px 10px 0px"
+        },
         "&:hover": {
           transform: "scale(1.01)",
         },
@@ -147,6 +203,11 @@ const styles = theme => ({
             boxShadow: 
             `5px 5px 7px #3a3843,
             -5px -5px 7px #767289`,
+            [theme.breakpoints.down("sm")]: {
+                boxShadow: 
+                `2px 2px 3px #3a3843,
+                -2px -2px 3px #767289`,
+            }
         },
         '& .MuiButton-text': {
             color: theme.palette.text.main
@@ -166,7 +227,12 @@ const styles = theme => ({
         boxShadow: 
             `5px 5px 7px #3a3843,
             -5px -5px 7px #767289`,
-        
+        [theme.breakpoints.down("sm")]: {
+            marginLeft: 0,
+            boxShadow: 
+            `2px 2px 3px #3a3843,
+            -2px -2px 3px #767289`,
+        },
         '& .MuiInput-underline': {
             border: 'none',
             borderColor: 'green',
@@ -223,23 +289,10 @@ const styles = theme => ({
             backgroundColor: 'transparent'
           }
     },
-    divider: {
-        width: 900,
-        height: 0,
-        backgroundColor: theme.palette.text.main,
-        borderRadius: 5,
-        margin: "20px 0px"
-    },
     contentRoot: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
-    },
-    searchPane: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: "space-between",
-        width: 980
+        alignItems: 'center',
     },
     leftPane: {
         display: 'flex',
@@ -256,46 +309,6 @@ const styles = theme => ({
         width: 980,
         height: 530,
         justifyContent: "space-between"
-    },
-    loadingLeft: {
-        '& .MuiSkeleton-rect': {
-            margin: 20,
-            borderRadius: 20
-        }
-    },
-    loadingTable: {
-        '& .MuiSkeleton-rect': {
-            margin: 20,
-            borderRadius: 20
-        }
-    },
-    details: {
-        color: theme.palette.text.main,
-        fontSize: 20,
-        fontWeight: 500
-    },
-    tableContainer: {
-        minHeight: 470,
-        height: "auto",
-        width: 400,
-        display: 'flex',
-        flexDirection: "column",
-        alignItems: 'center',
-        margin: "0px 10px 50px 10px",
-        padding: "10px 0px 10px 0px",
-        borderRadius: 25,
-    },
-    dataTable: {
-        overflowY: "visible",
-        paddingRight: 2,
-        
-    },
-    buttons: {
-        width: 400,
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: "space-around",
-        marginBottom: 10
     }
   });
   export default styles;
